@@ -1,0 +1,114 @@
+/* Navbar */
+
+.nav {
+    height: 20vh;
+    width: auto;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 4rem;
+}
+
+.logo {
+    flex: initial;
+    justify-content: center;
+    align-items: center;
+}
+
+.list {
+    /* color: white;
+    overflow: hidden;
+    list-style-type: none;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+    flex: 0 1 auto; */
+
+    display: flex;
+    color: white;
+    list-style-type: none;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.list-l {
+    width: 10rem;
+    background-color: #2952e3;
+    text-align: center;
+    /* padding-left: 2rem;
+    padding-right: 7rem; */
+    margin-left: 4rem;
+    margin-right: 4rem;
+    border-radius: 9999px;
+    cursor: pointer;
+}
+
+.list-l:hover {
+    background-color: #2546bd;
+}
+
+/* Welcome */
+
+.wel {
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+
+}
+
+.welcome {
+    display: flex;
+    flex-direction: column;
+    /* width: 100%; */
+    justify-content: center;
+    align-items: center;
+    color: aquamarine;
+}
+
+.connectWalletButton {
+    width: 13rem;
+    margin-bottom: 1.25rem;
+    border-color: #2952e3;
+    padding: 0.75rem;
+    border-radius: 9999px;
+    cursor: pointer;
+}
+
+.connectWalletButton:hover {
+    background-color: #2546bd;
+}
+
+.form {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+.form input {
+    width: 25rem;
+    border-color: grey;
+    padding: 0.75rem;
+    border-radius: 9px;
+}
+
+/* Loader */
+
+
+
+
+
+/* Services */
+
+
+
+
+
+
+/* Transactions */
+
+
+
+
+
+/* Footer */
