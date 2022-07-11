@@ -36,6 +36,9 @@ const Welcome = () => {
                         onClick={connectWallet}
                     >Connect Wallet</button>
                 </div>
+                <div>
+                    <h2 id='address'>Address</h2>
+                </div>
             </div>
             <form className='form'>
                 <Input placeholder="Address To" name="addressTo" type="text" handleChange={handleChange} />
