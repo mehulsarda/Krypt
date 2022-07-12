@@ -1,5 +1,7 @@
-import React from 'react'
-import './style.css'
+import React, { useContext } from 'react'
+import { TransactionContext } from '../context/TransactionContext';
+import { Loader } from ".";
+import './style.css';
 
 const Input = ({ placeholder, name, type, value, handleChange }) => (
     <input
@@ -12,16 +14,18 @@ const Input = ({ placeholder, name, type, value, handleChange }) => (
 );
 
 const Welcome = () => {
+    const { connectWallet, currentAccount, formData, handleChange, sendTransaction } = useContext(TransactionContext);
 
-    const connectWallet = () => {
+    const handleSubmit = (e) => {
+        const { addressTo, amount, keyword, message } = formData;
 
-    }
+        e.preventDefault();
 
-    const handleChange = () => {
+        if (!addressTo || !amount || !keyword || !message) {
+            return;
+        }
 
-    }
-
-    const handleSubmit = () => {
+        sendTransaction();
 
     }
 
@@ -30,11 +34,13 @@ const Welcome = () => {
             <div className='welcome'>
                 <h2> Send Crypto <br /> across the world</h2>
                 <div>
-                    <button
-                        type="button"
-                        className="connectWalletButton"
-                        onClick={connectWallet}
-                    >Connect Wallet</button>
+                    {!currentAccount && (
+                        <button
+                            type="button"
+                            className="connectWalletButton"
+                            onClick={connectWallet}
+                        >Connect Wallet</button>
+                    )}
                 </div>
                 <div>
                     <h2 id='address'>Address</h2>
@@ -46,11 +52,17 @@ const Welcome = () => {
                 <Input placeholder="Keyword (Gif)" name="keyword" type="text" handleChange={handleChange} />
                 <Input placeholder="Enter Message" name="message" type="text" handleChange={handleChange} />
                 <br />
-                <button
-                    type="button"
-                    className="connectWalletButton"
-                    onClick={handleSubmit}
-                >Send Now</button>
+
+                {false ? (
+                    <Loader />
+                ) : (
+                    <button
+                        type="button"
+                        className="connectWalletButton"
+                        onClick={handleSubmit}
+                    >Send Now</button>
+                )}
+
             </form>
         </div>
     );
