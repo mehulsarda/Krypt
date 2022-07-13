@@ -2,6 +2,7 @@ import React, { useContext } from 'react'
 import { TransactionContext } from '../context/TransactionContext';
 import { Loader } from ".";
 import './style.css';
+import { shortenAddress } from '../utils/shortenAddress'
 
 const Input = ({ placeholder, name, type, value, handleChange }) => (
     <input
@@ -14,7 +15,7 @@ const Input = ({ placeholder, name, type, value, handleChange }) => (
 );
 
 const Welcome = () => {
-    const { connectWallet, currentAccount, formData, handleChange, sendTransaction } = useContext(TransactionContext);
+    const { connectWallet, currentAccount, formData, handleChange, sendTransaction, isLoading } = useContext(TransactionContext);
 
     const handleSubmit = (e) => {
         const { addressTo, amount, keyword, message } = formData;
@@ -43,7 +44,7 @@ const Welcome = () => {
                     )}
                 </div>
                 <div>
-                    <h2 id='address'>Address</h2>
+                    <h2 id='address'>My Current Address {shortenAddress(currentAccount)}</h2>
                 </div>
             </div>
             <form className='form'>
@@ -53,7 +54,7 @@ const Welcome = () => {
                 <Input placeholder="Enter Message" name="message" type="text" handleChange={handleChange} />
                 <br />
 
-                {false ? (
+                {isLoading ? (
                     <Loader />
                 ) : (
                     <button
